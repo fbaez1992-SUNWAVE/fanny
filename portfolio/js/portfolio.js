@@ -378,14 +378,75 @@
     }
   });
 
-  document.querySelectorAll("[data-compare]").forEach((card) => {
+  document.querySelectorAll("[data-compare]").forEach((card, index) => {
     const range = card.querySelector(".compare-range");
     if (!range) return;
-    const syncSplit = () => {
-      card.style.setProperty("--split", `${range.value}%`);
+
+    const minSplit = 18;
+    const maxSplit = 82;
+    const duration = 6800;
+    let isInView = false;
+    let rafId = null;
+    let pauseUntil = 0;
+
+    const syncSplit = (value) => {
+      const split = Math.min(maxSplit, Math.max(minSplit, Number(value)));
+      card.style.setProperty("--split", `${split}%`);
+      range.value = String(Math.round(split));
     };
-    range.addEventListener("input", syncSplit);
-    syncSplit();
+
+    const stopCompareLoop = () => {
+      if (!rafId) return;
+      window.cancelAnimationFrame(rafId);
+      rafId = null;
+      card.classList.remove("is-auto-playing");
+    };
+
+    const tickCompareLoop = (now) => {
+      if (!isInView || reduceMotion) {
+        stopCompareLoop();
+        return;
+      }
+
+      if (!document.hidden && now >= pauseUntil) {
+        const progress = ((now + index * 900) % duration) / duration;
+        const eased = 0.5 - Math.cos(progress * Math.PI * 2) / 2;
+        syncSplit(minSplit + (maxSplit - minSplit) * eased);
+      }
+
+      rafId = window.requestAnimationFrame(tickCompareLoop);
+    };
+
+    const startCompareLoop = () => {
+      if (reduceMotion || rafId) return;
+      card.classList.add("is-auto-playing");
+      rafId = window.requestAnimationFrame(tickCompareLoop);
+    };
+
+    range.addEventListener("input", () => {
+      pauseUntil = performance.now() + 6000;
+      syncSplit(range.value);
+    });
+
+    range.addEventListener("pointerdown", () => {
+      pauseUntil = performance.now() + 6000;
+    });
+
+    syncSplit(range.value);
+
+    const compareObserver = new IntersectionObserver(
+      ([entry]) => {
+        isInView = entry.isIntersecting;
+        if (isInView) {
+          startCompareLoop();
+        } else {
+          stopCompareLoop();
+        }
+      },
+      { rootMargin: "-12% 0px -12% 0px", threshold: 0.22 }
+    );
+
+    compareObserver.observe(card);
   });
 
   const lbImg = lightbox?.querySelector(".lightbox__image");

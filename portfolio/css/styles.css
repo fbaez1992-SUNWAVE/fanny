@@ -37,6 +37,7 @@
 html {
   scroll-behavior: smooth;
   scrollbar-color: var(--accent) var(--bg);
+  overscroll-behavior-x: none;
 }
 
 body {
@@ -54,6 +55,7 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 ::selection {
@@ -706,6 +708,7 @@ h3 {
   border: 1px solid var(--line-bright);
   overflow: hidden;
   background: #05080d;
+  touch-action: pan-y;
 }
 
 .compare-after {
@@ -714,6 +717,7 @@ h3 {
   z-index: 1;
   overflow: hidden;
   clip-path: inset(0 calc(100% - var(--split)) 0 0);
+  will-change: clip-path;
 }
 
 .compare-rule {
@@ -725,6 +729,7 @@ h3 {
   width: 3rem;
   transform: translateX(-50%);
   pointer-events: none;
+  will-change: left;
 }
 
 .compare-rule::before {
@@ -761,6 +766,10 @@ h3 {
   transform: translate(-50%, -50%) scale(1.15);
 }
 
+.comparison-card.is-auto-playing .compare-rule::after {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
 .compare-range {
   position: absolute;
   inset: 0;
@@ -770,6 +779,13 @@ h3 {
   margin: 0;
   opacity: 0;
   cursor: ew-resize;
+  touch-action: pan-y;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .compare-range {
+    pointer-events: none;
+  }
 }
 
 .comparison-card footer {
