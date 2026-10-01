@@ -3,8 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Estefanía Farías - Portafolio 2026</title>
-    <meta name="description" content="Portafolio 2026 de Estefanía Farías, Diseñadora de Ambientes.">
+    <title>SUN DESIGN - Portafolio - Arquitectura Interior</title>
+    <meta name="description" content="Portafolio de SUN DESIGN. Estudio de arquitectura interior, interiorismo gastronómico, visualización espacial y obra ejecutada.">
+    <meta property="og:title" content="SUN DESIGN - Portafolio">
+    <meta property="og:description" content="Arquitectura interior, interiorismo gastronómico, visualización espacial y obra ejecutada.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#070709">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Montserrat:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/print.css" media="print">
   </head>
@@ -12,166 +19,380 @@
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
     <header class="site-header" aria-label="Navegación principal">
-      <a class="brand-mark" href="#portada" aria-label="Ir a portada">EF</a>
-      <nav class="main-nav" aria-label="Secciones del portafolio">
-        <a href="#sobre-mi">Sobre</a>
+      <a class="brand-lockup" href="#portada" aria-label="Ir a portada de SUN DESIGN">
+        <span class="brand-mark" aria-hidden="true">SD</span>
+        <span class="brand-wordmark" aria-hidden="true">
+          <span class="brand-wordmark__sol">SUN</span>
+          <span class="brand-divider"></span>
+          <span class="brand-wordmark__design">DESIGN</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Índice del portafolio">
         <a href="#arrogante">Arrogante</a>
         <a href="#lil-silly">Lil Silly</a>
-        <a href="#bagovit">Bagovit</a>
-        <a href="#render-obra">Obra</a>
+        <a href="#madam-zhou">Madam Zhou</a>
+        <a href="#grds">GRDS</a>
+        <a href="#not-your-nona">Not Your Nona</a>
+        <a href="#render-obra">Comparativo</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </header>
 
     <main id="contenido">
-      <section class="page cover" id="portada" data-section>
-        <div class="cover__meta">2026</div>
-        <div class="cover__content">
-          <h1>Estefanía Farías</h1>
-          <p>Diseñadora de Ambientes</p>
+      <section class="hero" id="portada" data-section>
+        <div class="hero__content">
+          <h1>SUN <span>DESIGN</span></h1>
+          <p class="hero__role">Portafolio de arquitectura interior para espacios gastronómicos, diseño de ambientes y ejecución espacial.</p>
         </div>
-        <p class="cover__line">Modelado 3D, interiorismo gastronómico y escenografía.</p>
+        <figure class="hero__visual" style="--ratio: 16 / 10;">
+          <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.45.jpeg" aria-label="Video loop inmersivo de atmósfera interior">
+            <source src="assets/videos/hero.mp4" type="video/mp4">
+          </video>
+          <div class="hero__video-overlay" aria-hidden="true"></div>
+        </figure>
       </section>
 
-      <section class="page about" id="sobre-mi" data-section>
-        <p class="kicker">Sobre mí</p>
-        <div class="about__content">
-          <h2>Hola, soy Estefanía.</h2>
-          <p>
-            Tengo 27 años. Trabajo con modelado 3D y visualizaciones fotorrealistas
-            para anticipar cómo se verá y se sentirá un espacio antes de construirse.
-          </p>
+      <section class="intro" id="sobre-mi" data-section>
+        <div class="section-heading">
+          <h2>Arquitectura interior pensada desde la atmósfera.</h2>
+          <p>SUN DESIGN desarrolla propuestas espaciales con modelado digital, lectura material y seguimiento hasta obra. El portafolio reúne renders, fotografías de ejecución y comparaciones directas entre intención y resultado construido.</p>
+        </div>
+        <dl class="intro__facts">
+          <div>
+            <dt>Base</dt>
+            <dd>Viña del Mar, Chile</dd>
+          </div>
+          <div>
+            <dt>Foco</dt>
+            <dd>Interiorismo gastronómico y visualización espacial</dd>
+          </div>
+          <div>
+            <dt>Entrega</dt>
+            <dd>Concepto, modelado, materialidad y obra ejecutada</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="project-section" id="arrogante" data-section data-project>
+        <div class="project-lede">
+          <div>
+            <h2>Restaurante El Arrogante</h2>
+          </div>
+          <p>Interiorismo gastronómico desarrollado desde modelado digital hasta obra ejecutada. La propuesta combina curvas, verde salvia, madera en espiga y vegetación para construir una experiencia cálida y reconocible.</p>
+        </div>
+        <dl class="project-specs">
+          <div><dt>Categoría</dt><dd>Interiorismo gastronómico</dd></div>
+          <div><dt>Tipología</dt><dd>Restaurante</dd></div>
+          <div><dt>Atmósfera</dt><dd>Curvas, madera, muro verde y luz cálida</dd></div>
+          <div><dt>Etapa</dt><dd>Propuesta a obra ejecutada</dd></div>
+        </dl>
+        <div class="project-tabs" role="tablist" aria-label="Filtrar imágenes de Restaurante El Arrogante">
+          <button class="tab is-active" type="button" data-filter="all" aria-pressed="true">Todo</button>
+          <button class="tab" type="button" data-filter="render" aria-pressed="false">Propuesta</button>
+          <button class="tab" type="button" data-filter="real" aria-pressed="false">Obra</button>
+        </div>
+        <div class="gallery gallery--asym" data-gallery>
+          <figure class="gallery-item gallery-item--large" data-kind="render" style="--ratio: 1600 / 900;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Propuesta - Vista">
+              <img src="../Renders/el%20arrogante/IMG_0514.JPG.jpeg" width="1600" height="900" alt="Propuesta de Restaurante El Arrogante, vista general" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Propuesta</span> Vista general</figcaption>
+          </figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1600 / 900;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Propuesta - Vista">
+              <img src="../Renders/el%20arrogante/IMG_0515.JPG.jpeg" width="1600" height="900" alt="Propuesta de Restaurante El Arrogante, vista general" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Propuesta</span> Vista general</figcaption>
+          </figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1600 / 900;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Propuesta - Vista">
+              <img src="../Renders/el%20arrogante/IMG_0516.JPG.jpeg" width="1600" height="900" alt="Propuesta de Restaurante El Arrogante, vista general" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Propuesta</span> Vista general</figcaption>
+          </figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1600 / 900;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Propuesta - Vista">
+              <img src="../Renders/el%20arrogante/IMG_0517.JPG.jpeg" width="1600" height="900" alt="Propuesta de Restaurante El Arrogante, vista general" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Propuesta</span> Vista general</figcaption>
+          </figure>
+          <figure class="gallery-item gallery-item--wide" data-kind="render" style="--ratio: 1600 / 900;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Propuesta - Vista">
+              <img src="../Renders/el%20arrogante/IMG_0521.JPG.jpeg" width="1600" height="900" alt="Propuesta de Restaurante El Arrogante, vista general" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Propuesta</span> Vista general</figcaption>
+          </figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1600 / 900;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Propuesta - Vista">
+              <img src="../Renders/el%20arrogante/IMG_0522.JPG.jpeg" width="1600" height="900" alt="Propuesta de Restaurante El Arrogante, vista general" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Propuesta</span> Vista general</figcaption>
+          </figure>
+          <figure class="gallery-item gallery-item--portrait" data-kind="real" style="--ratio: 1280 / 960;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Obra ejecutada - Fotografía">
+              <img src="../Trabajos%20reales/el%20arrogante/IMG_0546.JPG.jpeg" width="1280" height="960" alt="Fotografía de obra ejecutada en Restaurante El Arrogante" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Obra</span> Fotografía</figcaption>
+          </figure>
+          <figure class="gallery-item gallery-item--portrait" data-kind="real" style="--ratio: 1280 / 960;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Obra ejecutada - Fotografía">
+              <img src="../Trabajos%20reales/el%20arrogante/IMG_0547.JPG.jpeg" width="1280" height="960" alt="Fotografía de obra ejecutada en Restaurante El Arrogante" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Obra</span> Fotografía</figcaption>
+          </figure>
+          <figure class="gallery-item" data-kind="real" style="--ratio: 1280 / 960;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Obra ejecutada - Fotografía">
+              <img src="../Trabajos%20reales/el%20arrogante/IMG_0550.JPG.jpeg" width="1280" height="960" alt="Fotografía de obra ejecutada en Restaurante El Arrogante" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Obra</span> Fotografía</figcaption>
+          </figure>
+          <figure class="gallery-item" data-kind="real" style="--ratio: 1280 / 960;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Obra ejecutada - Fotografía">
+              <img src="../Trabajos%20reales/el%20arrogante/IMG_0551.JPG.jpeg" width="1280" height="960" alt="Fotografía de obra ejecutada en Restaurante El Arrogante" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Obra</span> Fotografía</figcaption>
+          </figure>
+          <figure class="gallery-item gallery-item--wide" data-kind="real" style="--ratio: 1280 / 960;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Obra ejecutada - Fotografía">
+              <img src="../Trabajos%20reales/el%20arrogante/IMG_0552.JPG.jpeg" width="1280" height="960" alt="Fotografía de obra ejecutada en Restaurante El Arrogante" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Obra</span> Fotografía</figcaption>
+          </figure>
+          <figure class="gallery-item" data-kind="real" style="--ratio: 1280 / 960;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Obra ejecutada - Fotografía">
+              <img src="../Trabajos%20reales/el%20arrogante/IMG_0553.JPG.jpeg" width="1280" height="960" alt="Fotografía de obra ejecutada en Restaurante El Arrogante" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Obra</span> Fotografía</figcaption>
+          </figure>
+          <figure class="gallery-item" data-kind="real" style="--ratio: 1280 / 960;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Obra ejecutada - Fotografía">
+              <img src="../Trabajos%20reales/el%20arrogante/IMG_0556.JPG.jpeg" width="1280" height="960" alt="Fotografía de obra ejecutada en Restaurante El Arrogante" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Obra</span> Fotografía</figcaption>
+          </figure>
+          <figure class="gallery-item gallery-item--portrait" data-kind="real" style="--ratio: 1280 / 960;">
+            <button class="media-button" type="button" data-caption="Restaurante El Arrogante - Obra ejecutada - Fotografía">
+              <img src="../Trabajos%20reales/el%20arrogante/IMG_0558.JPG.jpeg" width="1280" height="960" alt="Fotografía de obra ejecutada en Restaurante El Arrogante" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Obra</span> Fotografía</figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="page project project--arrogante" id="arrogante" data-section>
-        <div class="project__text">
-          <p class="kicker">Interiorismo gastronómico</p>
-          <h2>Restaurante Arrogante</h2>
-          <p>Interiorismo gastronómico desarrollado desde modelado 3D hasta proyecto ejecutado con curvas, verde salvia, madera en espiga y vegetación.</p>
+      <section class="project-section" id="lil-silly" data-section data-project>
+        <div class="project-lede">
+          <div>
+            <h2>Lil Silly Co.</h2>
+          </div>
+          <p>Concepto gastronómico y comercial de lenguaje gráfico intenso. El rojo profundo, los murales y el cielo lumínico producen un interior joven, fotogénico y directo.</p>
         </div>
-        <div class="project-gallery project-gallery--feature">
-          <figure class="media media--wide">
-            <img src="assets/projects/restaurante-arrogante/comedor-render.jpeg" alt="Render 3D del comedor de Restaurante Arrogante">
-            <figcaption>RENDER 3D</figcaption>
-          </figure>
-          <figure class="media">
-            <img src="assets/projects/restaurante-arrogante/muro-verde-render.jpeg" alt="Render 3D con muro verde de Restaurante Arrogante">
-            <figcaption>RENDER 3D</figcaption>
-          </figure>
-          <figure class="media">
-            <img src="assets/projects/restaurante-arrogante/detalle-interior-render.jpeg" alt="Render 3D de detalle interior de Restaurante Arrogante">
-            <figcaption>RENDER 3D</figcaption>
-          </figure>
+        <dl class="project-specs">
+          <div><dt>Categoría</dt><dd>Concepto comercial gastronómico</dd></div>
+          <div><dt>Tipología</dt><dd>Local de comida y experiencia de marca</dd></div>
+          <div><dt>Atmósfera</dt><dd>Rojo profundo, gráfica mural y luz puntual</dd></div>
+          <div><dt>Etapa</dt><dd>Propuesta a obra ejecutada</dd></div>
+        </dl>
+        <div class="project-tabs" role="tablist" aria-label="Filtrar imágenes de Lil Silly Co.">
+          <button class="tab is-active" type="button" data-filter="all" aria-pressed="true">Todo</button>
+          <button class="tab" type="button" data-filter="render" aria-pressed="false">Propuesta</button>
+          <button class="tab" type="button" data-filter="real" aria-pressed="false">Obra</button>
         </div>
-      </section>
-
-      <section class="page project project--lil" id="lil-silly" data-section>
-        <div class="project__text">
-          <p class="kicker">Concepto comercial</p>
-          <h2>Lil Silly Co.</h2>
-          <p>Concepto gastronómico ejecutado para público joven, con rojo profundo, ilustraciones gráficas y cielo perforado de luces cálidas.</p>
-        </div>
-        <div class="project-gallery project-gallery--stack">
-          <figure class="media media--wide">
-            <img src="assets/projects/lil-silly-co/muro-rojo-render.jpeg" alt="Render 3D del muro rojo de Lil Silly Co.">
-            <figcaption>RENDER 3D</figcaption>
+        <div class="gallery gallery--mosaic" data-gallery>
+          <figure class="gallery-item gallery-item--large" data-kind="render" style="--ratio: 1920 / 1080;">
+            <button class="media-button" type="button" data-caption="Lil Silly Co. - Propuesta - Vista">
+              <img src="../Renders/lil%20silly%20co/IMG_0532.JPG.jpeg" width="1920" height="1080" alt="Propuesta de Lil Silly Co., vista" loading="lazy" decoding="async">
+            </button>
+            <figcaption><span>Propuesta</span> Vista</figcaption>
           </figure>
-          <figure class="media">
-            <img src="assets/projects/lil-silly-co/comedor-render-01.jpeg" alt="Render 3D del comedor de Lil Silly Co.">
-            <figcaption>RENDER 3D</figcaption>
-          </figure>
-          <figure class="media">
-            <img src="assets/projects/lil-silly-co/comedor-render-02.jpeg" alt="Render 3D del comedor con gráfica de Lil Silly Co.">
-            <figcaption>RENDER 3D</figcaption>
-          </figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1920 / 1080;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Propuesta - Vista"><img src="../Renders/lil%20silly%20co/IMG_0533.JPG.jpeg" width="1920" height="1080" alt="Propuesta de Lil Silly Co., vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1920 / 1080;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Propuesta - Vista"><img src="../Renders/lil%20silly%20co/IMG_0534.JPG.jpeg" width="1920" height="1080" alt="Propuesta de Lil Silly Co., vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--wide" data-kind="render" style="--ratio: 1920 / 1080;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Propuesta - Vista"><img src="../Renders/lil%20silly%20co/IMG_0535.JPG.jpeg" width="1920" height="1080" alt="Propuesta de Lil Silly Co., vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1920 / 1080;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Propuesta - Vista"><img src="../Renders/lil%20silly%20co/IMG_0536.JPG.jpeg" width="1920" height="1080" alt="Propuesta de Lil Silly Co., vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1920 / 1080;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Propuesta - Vista"><img src="../Renders/lil%20silly%20co/IMG_0606.JPG.jpeg" width="1920" height="1080" alt="Propuesta de Lil Silly Co., vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--wide" data-kind="render" style="--ratio: 1920 / 1080;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Propuesta - Vista"><img src="../Renders/lil%20silly%20co/IMG_0607.JPG.jpeg" width="1920" height="1080" alt="Propuesta de Lil Silly Co., vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1920 / 1080;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Propuesta - Vista"><img src="../Renders/lil%20silly%20co/IMG_0610.JPG.jpeg" width="1920" height="1080" alt="Propuesta de Lil Silly Co., vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1920 / 1080;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Propuesta - Vista"><img src="../Renders/lil%20silly%20co/IMG_0612.JPG.jpeg" width="1920" height="1080" alt="Propuesta de Lil Silly Co., vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--tall" data-kind="real" style="--ratio: 1179 / 2556;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Obra ejecutada - Fotografía vertical"><img src="../Trabajos%20reales/lil%20silly%20co/IMG_2331.PNG" width="1179" height="2556" alt="Fotografía vertical de obra ejecutada en Lil Silly Co." loading="lazy" decoding="async"></button><figcaption><span>Obra</span> Fotografía vertical</figcaption></figure>
+          <figure class="gallery-item gallery-item--tall" data-kind="real" style="--ratio: 1179 / 2556;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Obra ejecutada - Fotografía vertical"><img src="../Trabajos%20reales/lil%20silly%20co/IMG_2332.PNG" width="1179" height="2556" alt="Fotografía vertical de obra ejecutada en Lil Silly Co." loading="lazy" decoding="async"></button><figcaption><span>Obra</span> Fotografía vertical</figcaption></figure>
+          <figure class="gallery-item gallery-item--portrait" data-kind="real" style="--ratio: 1080 / 1350;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Obra ejecutada - Fotografía"><img src="../Trabajos%20reales/lil%20silly%20co/IMG_2333.JPG.jpeg" width="1080" height="1350" alt="Fotografía de obra ejecutada en Lil Silly Co." loading="lazy" decoding="async"></button><figcaption><span>Obra</span> Fotografía</figcaption></figure>
+          <figure class="gallery-item gallery-item--portrait" data-kind="real" style="--ratio: 1080 / 1350;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Obra ejecutada - Fotografía"><img src="../Trabajos%20reales/lil%20silly%20co/IMG_2334.JPG.jpeg" width="1080" height="1350" alt="Fotografía de obra ejecutada en Lil Silly Co." loading="lazy" decoding="async"></button><figcaption><span>Obra</span> Fotografía</figcaption></figure>
+          <figure class="gallery-item gallery-item--portrait" data-kind="real" style="--ratio: 3072 / 4096;"><button class="media-button" type="button" data-caption="Lil Silly Co. - Obra ejecutada - Fotografía"><img src="../Trabajos%20reales/lil%20silly%20co/IMG_2335.JPG.jpeg" width="3072" height="4096" alt="Fotografía de obra ejecutada en Lil Silly Co." loading="lazy" decoding="async"></button><figcaption><span>Obra</span> Fotografía</figcaption></figure>
         </div>
       </section>
 
-      <section class="page project project--bagovit" id="bagovit" data-section>
-        <div class="project__text">
-          <p class="kicker">Escenografía de marca</p>
-          <h2>Carrusel Bagovit</h2>
-          <p>Pieza escenográfica modelada en 3D para anticipar luz, texturas y fotografía desde cualquier ángulo.</p>
+      <section class="project-section" id="madam-zhou" data-section data-project>
+        <div class="project-lede">
+          <div>
+            <h2>Madam Zhou</h2>
+          </div>
+          <p>Espacio gastronómico de atmósfera nocturna y envolvente. La lectura del render permite anticipar escala, temperatura de luz y presencia material antes de llegar a la obra real.</p>
         </div>
-        <div class="project-gallery project-gallery--feature">
-          <figure class="media media--wide">
-            <img src="assets/projects/carrusel-bagovit/carrusel-render.jpeg" alt="Render 3D principal del Carrusel Bagovit">
-            <figcaption>RENDER 3D</figcaption>
-          </figure>
-          <figure class="media">
-            <img src="assets/projects/carrusel-bagovit/vista-frontal-render.jpeg" alt="Render 3D frontal del Carrusel Bagovit">
-            <figcaption>RENDER 3D</figcaption>
-          </figure>
-          <figure class="media">
-            <img src="assets/projects/carrusel-bagovit/detalle-luces-render.jpeg" alt="Render 3D de luces y texturas del Carrusel Bagovit">
-            <figcaption>RENDER 3D</figcaption>
-          </figure>
+        <dl class="project-specs">
+          <div><dt>Categoría</dt><dd>Interiorismo gastronómico</dd></div>
+          <div><dt>Tipología</dt><dd>Restaurante y bar</dd></div>
+          <div><dt>Atmósfera</dt><dd>Luz baja, contraste y superficies cálidas</dd></div>
+          <div><dt>Etapa</dt><dd>Propuesta a obra ejecutada</dd></div>
+        </dl>
+        <div class="project-tabs" role="tablist" aria-label="Filtrar imágenes de Madam Zhou">
+          <button class="tab is-active" type="button" data-filter="all" aria-pressed="true">Todo</button>
+          <button class="tab" type="button" data-filter="render" aria-pressed="false">Propuesta</button>
+          <button class="tab" type="button" data-filter="real" aria-pressed="false">Obra</button>
+        </div>
+        <div class="gallery gallery--quiet" data-gallery>
+          <figure class="gallery-item gallery-item--large" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="Madam Zhou - Propuesta - Vista"><img src="../Renders/maddam%20zhou/IMG_2339.JPG.jpeg" width="1280" height="720" alt="Propuesta de Madam Zhou, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="Madam Zhou - Propuesta - Vista"><img src="../Renders/maddam%20zhou/IMG_2340.JPG.jpeg" width="1280" height="720" alt="Propuesta de Madam Zhou, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--portrait" data-kind="render" style="--ratio: 1115 / 859;"><button class="media-button" type="button" data-caption="Madam Zhou - Propuesta - Vista"><img src="../Renders/maddam%20zhou/IMG_2341.JPG.jpeg" width="1115" height="859" alt="Propuesta de Madam Zhou, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="Madam Zhou - Propuesta - Vista"><img src="../Renders/maddam%20zhou/IMG_2342.JPG.jpeg" width="1280" height="720" alt="Propuesta de Madam Zhou, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--tall" data-kind="real" style="--ratio: 3120 / 4160;"><button class="media-button" type="button" data-caption="Madam Zhou - Obra ejecutada - Fotografía"><img src="../Trabajos%20reales/madam%20zhou/WhatsApp%20Image%202026-10-01%20at%2000.09.28.jpeg" width="3120" height="4160" alt="Fotografía de obra ejecutada en Madam Zhou" loading="lazy" decoding="async"></button><figcaption><span>Obra</span> Fotografía</figcaption></figure>
+          <figure class="gallery-item gallery-item--tall" data-kind="real" style="--ratio: 3120 / 4160;"><button class="media-button" type="button" data-caption="Madam Zhou - Obra ejecutada - Fotografía"><img src="../Trabajos%20reales/madam%20zhou/WhatsApp%20Image%202026-10-01%20at%2000.09.43.jpeg" width="3120" height="4160" alt="Fotografía de obra ejecutada en Madam Zhou" loading="lazy" decoding="async"></button><figcaption><span>Obra</span> Fotografía</figcaption></figure>
         </div>
       </section>
 
-      <section class="page execution execution--proof" id="render-obra" data-section>
-        <div class="execution__text">
-          <p class="kicker">Prueba de fidelidad</p>
-          <h2>Del render a la obra</h2>
-          <p>Proyectos diseñados en 3D y coordinados junto a Constructora MAFE hasta su ejecución en obra.</p>
+      <section class="project-section" id="grds" data-section data-project>
+        <div class="project-lede">
+          <div>
+            <h2>GRDS</h2>
+          </div>
+          <p>Proyecto comercial trabajado con una visualización precisa de mobiliario, iluminación y lectura de recorridos. La obra real confirma el paso de una escena digital a un espacio construido.</p>
         </div>
+        <dl class="project-specs">
+          <div><dt>Categoría</dt><dd>Diseño interior comercial</dd></div>
+          <div><dt>Tipología</dt><dd>Espacio de atención y exhibición</dd></div>
+          <div><dt>Atmósfera</dt><dd>Orden material, luz controlada y detalle técnico</dd></div>
+          <div><dt>Etapa</dt><dd>Propuesta a obra ejecutada</dd></div>
+        </dl>
+        <div class="project-tabs" role="tablist" aria-label="Filtrar imágenes de GRDS">
+          <button class="tab is-active" type="button" data-filter="all" aria-pressed="true">Todo</button>
+          <button class="tab" type="button" data-filter="render" aria-pressed="false">Propuesta</button>
+          <button class="tab" type="button" data-filter="real" aria-pressed="false">Obra</button>
+        </div>
+        <div class="gallery gallery--asym" data-gallery>
+          <figure class="gallery-item gallery-item--large" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="GRDS - Propuesta - Vista"><img src="../Renders/grds/WhatsApp%20Image%202026-09-30%20at%2021.00.51%20%282%29.jpeg" width="1280" height="720" alt="Propuesta de GRDS, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="GRDS - Propuesta - Vista"><img src="../Renders/grds/WhatsApp%20Image%202026-09-30%20at%2021.00.51%20%283%29.jpeg" width="1280" height="720" alt="Propuesta de GRDS, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="GRDS - Propuesta - Vista"><img src="../Renders/grds/WhatsApp%20Image%202026-09-30%20at%2021.00.52%20%281%29.jpeg" width="1280" height="720" alt="Propuesta de GRDS, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--wide" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="GRDS - Propuesta - Vista"><img src="../Renders/grds/WhatsApp%20Image%202026-09-30%20at%2021.00.52.jpeg" width="1280" height="720" alt="Propuesta de GRDS, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="GRDS - Propuesta - Vista"><img src="../Renders/grds/WhatsApp%20Image%202026-09-30%20at%2021.00.53%20%281%29.jpeg" width="1280" height="720" alt="Propuesta de GRDS, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="GRDS - Propuesta - Vista"><img src="../Renders/grds/WhatsApp%20Image%202026-09-30%20at%2021.00.53%20%282%29.jpeg" width="1280" height="720" alt="Propuesta de GRDS, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="GRDS - Propuesta - Vista"><img src="../Renders/grds/WhatsApp%20Image%202026-09-30%20at%2021.00.53.jpeg" width="1280" height="720" alt="Propuesta de GRDS, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--wide" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="GRDS - Propuesta - Vista"><img src="../Renders/grds/WhatsApp%20Image%202026-09-30%20at%2021.00.54.jpeg" width="1280" height="720" alt="Propuesta de GRDS, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--portrait" data-kind="real" style="--ratio: 4032 / 3024;"><button class="media-button" type="button" data-caption="GRDS - Obra ejecutada - Fotografía"><img src="../Trabajos%20reales/GRDS/WhatsApp%20Image%202026-10-01%20at%2000.10.59.jpeg" width="4032" height="3024" alt="Fotografía de obra ejecutada en GRDS" loading="lazy" decoding="async"></button><figcaption><span>Obra</span> Fotografía</figcaption></figure>
+          <figure class="gallery-item gallery-item--portrait" data-kind="real" style="--ratio: 1280 / 960;"><button class="media-button" type="button" data-caption="GRDS - Obra ejecutada - Fotografía"><img src="../Trabajos%20reales/GRDS/WhatsApp%20Image%202026-10-01%20at%2000.12.37.jpeg" width="1280" height="960" alt="Fotografía de obra ejecutada en GRDS" loading="lazy" decoding="async"></button><figcaption><span>Obra</span> Fotografía</figcaption></figure>
+        </div>
+      </section>
 
-        <div class="comparison-list">
-          <article class="comparison-card comparison-stage" data-compare style="--split: 54%;">
-            <div class="comparison-card__header">
-              <span>Restaurante Arrogante</span>
-              <small>Viña del Mar</small>
+      <section class="project-section project-section--visualization" id="not-your-nona" data-section data-project>
+        <div class="project-lede">
+          <div>
+            <h2>Not Your Nona</h2>
+          </div>
+          <p>Proyecto de visualización y modelado digital gastronómico. La serie enfatiza iluminación, textura, encuadres y propuesta espacial para comunicar una atmósfera completa antes de materializarla.</p>
+        </div>
+        <dl class="project-specs">
+          <div><dt>Categoría</dt><dd>Visualización Espacial gastronómica</dd></div>
+          <div><dt>Tipología</dt><dd>Propuesta espacial de restaurante</dd></div>
+          <div><dt>Atmósfera</dt><dd>Luz cálida, materialidad envolvente y escenas de detalle</dd></div>
+          <div><dt>Etapa</dt><dd>Modelado digital y render fotorrealista</dd></div>
+        </dl>
+        <div class="gallery gallery--visual" data-gallery>
+          <figure class="gallery-item gallery-item--large" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="Not Your Nona - Propuesta - Vista"><img src="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.45.jpeg" width="1280" height="720" alt="Propuesta de Not Your Nona, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="Not Your Nona - Propuesta - Vista"><img src="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.46.jpeg" width="1280" height="720" alt="Propuesta de Not Your Nona, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="Not Your Nona - Propuesta - Vista"><img src="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.48.jpeg" width="1280" height="720" alt="Propuesta de Not Your Nona, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--wide" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="Not Your Nona - Propuesta - Vista"><img src="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.49%20%281%29.jpeg" width="1280" height="720" alt="Propuesta de Not Your Nona, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="Not Your Nona - Propuesta - Vista"><img src="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.49.jpeg" width="1280" height="720" alt="Propuesta de Not Your Nona, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--wide" data-kind="render" style="--ratio: 1115 / 621;"><button class="media-button" type="button" data-caption="Not Your Nona - Propuesta - Vista"><img src="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.50%20%281%29.jpeg" width="1115" height="621" alt="Propuesta de Not Your Nona, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1115 / 621;"><button class="media-button" type="button" data-caption="Not Your Nona - Propuesta - Vista"><img src="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.50.jpeg" width="1115" height="621" alt="Propuesta de Not Your Nona, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1280 / 720;"><button class="media-button" type="button" data-caption="Not Your Nona - Propuesta - Vista"><img src="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.51%20%281%29.jpeg" width="1280" height="720" alt="Propuesta de Not Your Nona, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+          <figure class="gallery-item gallery-item--wide" data-kind="render" style="--ratio: 1280 / 746;"><button class="media-button" type="button" data-caption="Not Your Nona - Propuesta - Vista"><img src="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.51.jpeg" width="1280" height="746" alt="Propuesta de Not Your Nona, vista" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="proof-section" id="render-obra" data-section>
+        <div class="section-heading section-heading--center">
+          <h2>Del render a la obra.</h2>
+          <p>Comparadores interactivos para revisar la distancia entre intención visual y ejecución real en los proyectos con fotografías de obra.</p>
+        </div>
+        <div class="comparison-grid">
+          <article class="comparison-card" data-compare style="--split: 52%;">
+            <header><h3>Restaurante El Arrogante</h3><p>Propuesta y resultado</p></header>
+            <div class="compare-frame" style="--ratio: 16 / 9;">
+              <img src="../Renders/el%20arrogante/IMG_0514.JPG.jpeg" width="1600" height="900" alt="Propuesta de Restaurante El Arrogante para comparación" loading="lazy" decoding="async">
+              <div class="compare-after" aria-hidden="true"><img src="../Trabajos%20reales/el%20arrogante/IMG_0546.JPG.jpeg" width="1280" height="960" alt="" loading="lazy" decoding="async"></div>
+              <div class="compare-rule" aria-hidden="true"></div>
+              <input class="compare-range" type="range" min="0" max="100" value="52" aria-label="Comparar render y obra ejecutada de Restaurante El Arrogante">
             </div>
-            <div class="compare-frame">
-              <img src="assets/projects/render-obra-ejecutada/arrogante-render-3d.jpeg" alt="Render 3D de Restaurante Arrogante">
-              <div class="compare-frame__after" aria-hidden="true">
-                <img src="assets/projects/render-obra-ejecutada/arrogante-obra-ejecutada.jpeg" alt="">
-              </div>
-              <div class="compare-frame__rule" aria-hidden="true"></div>
-              <input class="compare-frame__range" type="range" min="0" max="100" value="54" aria-label="Comparar render y obra ejecutada de Restaurante Arrogante">
-            </div>
-            <div class="comparison-card__legend" aria-hidden="true">
-              <span>Render 3D</span>
-              <span>Obra ejecutada</span>
-            </div>
+            <footer><span>Propuesta</span><span>Obra</span></footer>
           </article>
-
-          <article class="comparison-card comparison-stage" data-compare style="--split: 50%;">
-            <div class="comparison-card__header">
-              <span>Lil Silly Co.</span>
-              <small>Proyecto ejecutado</small>
+          <article class="comparison-card" data-compare style="--split: 50%;">
+            <header><h3>Lil Silly Co.</h3><p>Propuesta y resultado</p></header>
+            <div class="compare-frame" style="--ratio: 4 / 5;">
+              <img src="../Renders/lil%20silly%20co/IMG_0532.JPG.jpeg" width="1920" height="1080" alt="Propuesta de Lil Silly Co. para comparación" loading="lazy" decoding="async">
+              <div class="compare-after" aria-hidden="true"><img src="../Trabajos%20reales/lil%20silly%20co/IMG_2333.JPG.jpeg" width="1080" height="1350" alt="" loading="lazy" decoding="async"></div>
+              <div class="compare-rule" aria-hidden="true"></div>
+              <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparar render y obra ejecutada de Lil Silly Co.">
             </div>
-            <div class="compare-frame">
-              <img src="assets/projects/render-obra-ejecutada/lil-silly-render-3d.jpeg" alt="Render 3D de Lil Silly Co.">
-              <div class="compare-frame__after" aria-hidden="true">
-                <img src="assets/projects/render-obra-ejecutada/lil-silly-obra-ejecutada.jpeg" alt="">
-              </div>
-              <div class="compare-frame__rule" aria-hidden="true"></div>
-              <input class="compare-frame__range" type="range" min="0" max="100" value="50" aria-label="Comparar render y obra ejecutada de Lil Silly Co.">
+            <footer><span>Propuesta</span><span>Obra</span></footer>
+          </article>
+          <article class="comparison-card" data-compare style="--split: 48%;">
+            <header><h3>Madam Zhou</h3><p>Propuesta y resultado</p></header>
+            <div class="compare-frame" style="--ratio: 4 / 5;">
+              <img src="../Renders/maddam%20zhou/IMG_2339.JPG.jpeg" width="1280" height="720" alt="Propuesta de Madam Zhou para comparación" loading="lazy" decoding="async">
+              <div class="compare-after" aria-hidden="true"><img src="../Trabajos%20reales/madam%20zhou/WhatsApp%20Image%202026-10-01%20at%2000.09.28.jpeg" width="3120" height="4160" alt="" loading="lazy" decoding="async"></div>
+              <div class="compare-rule" aria-hidden="true"></div>
+              <input class="compare-range" type="range" min="0" max="100" value="48" aria-label="Comparar render y obra ejecutada de Madam Zhou">
             </div>
-            <div class="comparison-card__legend" aria-hidden="true">
-              <span>Render 3D</span>
-              <span>Obra ejecutada</span>
+            <footer><span>Propuesta</span><span>Obra</span></footer>
+          </article>
+          <article class="comparison-card" data-compare style="--split: 54%;">
+            <header><h3>GRDS</h3><p>Propuesta y resultado</p></header>
+            <div class="compare-frame" style="--ratio: 16 / 9;">
+              <img src="../Renders/grds/WhatsApp%20Image%202026-09-30%20at%2021.00.51%20%282%29.jpeg" width="1280" height="720" alt="Propuesta de GRDS para comparación" loading="lazy" decoding="async">
+              <div class="compare-after" aria-hidden="true"><img src="../Trabajos%20reales/GRDS/WhatsApp%20Image%202026-10-01%20at%2000.10.59.jpeg" width="4032" height="3024" alt="" loading="lazy" decoding="async"></div>
+              <div class="compare-rule" aria-hidden="true"></div>
+              <input class="compare-range" type="range" min="0" max="100" value="54" aria-label="Comparar render y obra ejecutada de GRDS">
             </div>
+            <footer><span>Propuesta</span><span>Obra</span></footer>
           </article>
         </div>
       </section>
 
-      <section class="page contact" id="contacto" data-section>
-        <p class="kicker">Contacto</p>
-        <div class="contact__content">
-          <h2>Estefanía Farías</h2>
-          <p>Diseñadora de Ambientes</p>
-          <address>
-            Viña del Mar, Chile<br>
-            <a href="mailto:renders.sol@gmail.com">renders.sol@gmail.com</a><br>
-            <a href="tel:+56933068417">+56 9 3306 8417</a><br>
-            <a href="https://linkedin.com/in/estefania-farias-ambientes-3d">linkedin.com/in/estefania-farias-ambientes-3d</a>
-          </address>
+      <section class="project-section project-section--compact" id="bagovit" data-section data-project>
+        <div class="project-lede">
+          <div>
+            <h2>Carrusel Bagovit</h2>
+          </div>
+          <p>Pieza escenográfica de marca modelada en 3D para anticipar presencia, iluminación y lectura fotográfica del montaje.</p>
         </div>
+        <div class="gallery gallery--compact" data-gallery>
+          <figure class="gallery-item gallery-item--large" data-kind="render" style="--ratio: 1400 / 787;"><button class="media-button" type="button" data-caption="Carrusel Bagovit - Propuesta principal"><img src="assets/projects/carrusel-bagovit/carrusel-render.jpeg" width="1400" height="787" alt="Propuesta principal del Carrusel Bagovit" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista principal</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 966 / 543;"><button class="media-button" type="button" data-caption="Carrusel Bagovit - Vista frontal"><img src="assets/projects/carrusel-bagovit/vista-frontal-render.jpeg" width="966" height="543" alt="Propuesta frontal del Carrusel Bagovit" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Vista frontal</figcaption></figure>
+          <figure class="gallery-item" data-kind="render" style="--ratio: 1400 / 788;"><button class="media-button" type="button" data-caption="Carrusel Bagovit - Detalle de luces"><img src="assets/projects/carrusel-bagovit/detalle-luces-render.jpeg" width="1400" height="788" alt="Propuesta de luces y texturas del Carrusel Bagovit" loading="lazy" decoding="async"></button><figcaption><span>Propuesta</span> Detalle de luces</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="contact" id="contacto" data-section>
+        <div>
+          <h2>Contacto</h2>
+          <p>SUN DESIGN</p>
+        </div>
+        <address>
+          Estudio de Arquitectura Interior y Visualización Espacial<br>
+          Viña del Mar, Chile<br>
+          <a href="mailto:renders.sol@gmail.com">renders.sol@gmail.com</a><br>
+          <a href="tel:+56933068417">+56 9 3306 8417</a><br>
+          <a href="https://linkedin.com/in/estefania-farias-ambientes-3d">linkedin.com/in/estefania-farias-ambientes-3d</a>
+        </address>
       </section>
     </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vista ampliada de imagen">
+      <button class="lightbox__close" type="button" aria-label="Cerrar vista ampliada">Cerrar</button>
+      <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Imagen anterior">Anterior</button>
+      <figure class="lightbox__figure">
+        <img class="lightbox__image" src="../Renders/not%20your%20nona/WhatsApp%20Image%202026-09-30%20at%2021.00.45.jpeg" width="1280" height="720" alt="" loading="lazy" decoding="async">
+        <figcaption class="lightbox__caption"></figcaption>
+      </figure>
+      <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Imagen siguiente">Siguiente</button>
+    </div>
 
     <script src="js/portfolio.js"></script>
   </body>

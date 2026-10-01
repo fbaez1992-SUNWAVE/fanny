@@ -1,128 +1,168 @@
 @page {
   size: A4 landscape;
-  margin: 0;
+  margin: 10mm 14mm;
 }
 
 * {
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
 }
 
 html,
 body {
-  background: #050507 !important;
-  color: #f5f7ff !important;
+  background: #0b0b0a !important;
+  color: #f4f0ea !important;
+  font-size: 10pt;
 }
 
 .site-header,
-.skip-link {
+.skip-link,
+.project-toolbar,
+.project-tabs,
+.stage-controls,
+.lightbox,
+.compare-range,
+.compare-rule {
   display: none !important;
 }
 
-.page {
-  width: 297mm;
-  height: 210mm;
-  min-height: 0;
-  max-width: none;
-  margin: 0;
-  padding: 16mm 18mm;
-  overflow: hidden;
+.hero,
+.intro,
+.project-section,
+.proof-section,
+.contact {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  padding: 6mm 0 !important;
+  margin: 0 !important;
+  border-top: 1px solid rgba(244, 240, 234, 0.2);
   page-break-after: always;
   break-after: page;
+  break-inside: avoid;
 }
 
-.page:last-child {
+.contact {
   page-break-after: auto;
   break-after: auto;
 }
 
-[data-section] {
-  opacity: 1 !important;
-  transform: none !important;
+/* Portada en Lámina 1 */
+.hero {
+  display: grid !important;
+  grid-template-columns: 0.9fr 1.1fr !important;
+  gap: 10mm !important;
+  align-items: center !important;
+  height: 180mm !important;
+  border-top: 0 !important;
 }
 
 h1 {
-  font-size: 68pt;
+  font-size: 44pt !important;
 }
 
 h2 {
-  font-size: 38pt;
+  font-size: 24pt !important;
+  max-width: none !important;
+}
+
+h3 {
+  font-size: 15pt !important;
 }
 
 p,
-address {
-  font-size: 10pt;
+dd,
+address,
+figcaption {
+  font-size: 8.5pt !important;
 }
 
-.kicker,
-figcaption,
-.cover__meta,
-.comparison-card__header {
-  font-size: 7pt;
+/* Cada Proyecto cabe en 1 Lámina A4 Horizontal */
+.project-lede {
+  display: grid !important;
+  grid-template-columns: 0.85fr 1.15fr !important;
+  gap: 8mm !important;
+  align-items: end !important;
+  margin-bottom: 4mm !important;
 }
 
-.cover,
-.about,
-.project,
-.execution,
-.contact {
-  min-height: 178mm;
+.project-specs {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  margin-bottom: 5mm !important;
 }
 
-.project,
-.execution {
-  grid-template-columns: 70mm 1fr;
-  gap: 12mm;
+.project-specs div {
+  padding: 2.5mm 4mm !important;
 }
 
-.about__content {
-  grid-template-columns: 1fr 1fr;
-}
-
-.project-gallery--feature .media--wide,
-.project-gallery--stack .media--wide {
-  height: 92mm;
-}
-
-.project-gallery .media:not(.media--wide) {
-  height: 45mm;
-}
-
-.comparison-card {
-  padding: 5mm;
-}
-
-.compare-frame {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4mm;
-  min-height: 0;
-  box-shadow: none;
-}
-
-.compare-frame::after,
-.compare-frame__rule,
-.compare-frame__range,
-.comparison-card__legend {
+.project-stage {
   display: none !important;
 }
 
-.compare-frame > img,
-.compare-frame__after img {
-  height: 56mm;
+/* En el PDF mostramos un Bento Editorial de las 3 mejores fotos por proyecto */
+.gallery {
+  display: grid !important;
+  grid-template-columns: 1.35fr 0.85fr !important;
+  grid-template-rows: 52mm 52mm !important;
+  gap: 4mm !important;
+  overflow: visible !important;
 }
 
-.compare-frame__after {
-  position: static;
-  width: auto;
-  clip-path: none;
+.gallery-item {
+  opacity: 1 !important;
+  display: grid !important;
 }
 
-figure,
-img,
-.project-gallery,
-.comparison-card,
+.gallery-item:nth-child(1) {
+  grid-column: 1 / 2 !important;
+  grid-row: 1 / 3 !important;
+}
+
+.gallery-item:nth-child(2) {
+  grid-column: 2 / 3 !important;
+  grid-row: 1 / 2 !important;
+}
+
+.gallery-item:nth-child(3) {
+  grid-column: 2 / 3 !important;
+  grid-row: 2 / 3 !important;
+}
+
+.gallery-item:nth-child(n + 4) {
+  display: none !important;
+}
+
+.media-button {
+  height: 100% !important;
+  aspect-ratio: auto !important;
+}
+
+.gallery-item figcaption {
+  display: none !important;
+}
+
+/* Comparadores en grilla 2x2 para caber en 1 lámina */
+.comparison-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 4mm !important;
+}
+
+.comparison-card {
+  padding: 3mm !important;
+  gap: 2mm !important;
+}
+
 .compare-frame {
-  break-inside: avoid;
-  page-break-inside: avoid;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 2mm !important;
+  height: 44mm !important;
+  aspect-ratio: auto !important;
+}
+
+.compare-after {
+  position: static !important;
+  clip-path: none !important;
 }
