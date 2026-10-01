@@ -47,10 +47,66 @@
   attachTilt(document.querySelector(".hero__visual"), 7, 1.01);
 
   const projects = Array.from(document.querySelectorAll("[data-project]"));
+  const curatedGalleryImages = {
+    arrogante: [
+      "IMG_0514.JPG.jpeg",
+      "IMG_0516.JPG.jpeg",
+      "IMG_0521.JPG.jpeg",
+      "IMG_0546.JPG.jpeg",
+      "IMG_0550.JPG.jpeg",
+      "IMG_0552.JPG.jpeg",
+      "IMG_0558.JPG.jpeg"
+    ],
+    "lil-silly": [
+      "IMG_0532.JPG.jpeg",
+      "IMG_0535.JPG.jpeg",
+      "IMG_0607.JPG.jpeg",
+      "IMG_0612.JPG.jpeg",
+      "IMG_2331.PNG",
+      "IMG_2333.JPG.jpeg",
+      "IMG_2335.JPG.jpeg"
+    ],
+    "madam-zhou": [
+      "IMG_2339.JPG.jpeg",
+      "IMG_2340.JPG.jpeg",
+      "IMG_2341.JPG.jpeg",
+      "IMG_2342.JPG.jpeg",
+      "WhatsApp%20Image%202026-10-01%20at%2000.09.28.jpeg",
+      "WhatsApp%20Image%202026-10-01%20at%2000.09.43.jpeg"
+    ],
+    grds: [
+      "WhatsApp%20Image%202026-09-30%20at%2021.00.51%20%282%29.jpeg",
+      "WhatsApp%20Image%202026-09-30%20at%2021.00.52%20%281%29.jpeg",
+      "WhatsApp%20Image%202026-09-30%20at%2021.00.53%20%282%29.jpeg",
+      "WhatsApp%20Image%202026-09-30%20at%2021.00.54.jpeg",
+      "WhatsApp%20Image%202026-10-01%20at%2000.10.59.jpeg",
+      "WhatsApp%20Image%202026-10-01%20at%2000.12.37.jpeg"
+    ],
+    "not-your-nona": [
+      "WhatsApp%20Image%202026-09-30%20at%2021.00.45.jpeg",
+      "WhatsApp%20Image%202026-09-30%20at%2021.00.48.jpeg",
+      "WhatsApp%20Image%202026-09-30%20at%2021.00.49%20%281%29.jpeg",
+      "WhatsApp%20Image%202026-09-30%20at%2021.00.50%20%281%29.jpeg",
+      "WhatsApp%20Image%202026-09-30%20at%2021.00.51.jpeg"
+    ]
+  };
+
+  const curateGallery = (project, gallery) => {
+    const allowed = curatedGalleryImages[project.id];
+    if (!allowed) return;
+
+    gallery.querySelectorAll(".gallery-item").forEach((item) => {
+      const src = item.querySelector("img")?.getAttribute("src") || "";
+      const keep = allowed.some((name) => src.endsWith(name));
+      if (!keep) item.remove();
+    });
+  };
 
   projects.forEach((project) => {
     const gallery = project.querySelector("[data-gallery]");
     if (!gallery) return;
+
+    curateGallery(project, gallery);
 
     const allItems = Array.from(gallery.querySelectorAll(".gallery-item"));
     if (!allItems.length) return;
