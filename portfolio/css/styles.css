@@ -172,17 +172,15 @@ h3 {
     padding 260ms var(--ease-out),
     background 260ms var(--ease-out),
     border-color 260ms var(--ease-out),
-    box-shadow 260ms var(--ease-out);
+    box-shadow 260ms var(--ease-out),
+    opacity 220ms var(--ease-out),
+    transform 260ms var(--ease-out);
 }
 
-.site-header.is-compact {
-  top: 0.65rem;
-  width: min(calc(100% - 1.25rem), 760px);
-  height: 46px;
-  padding: 0 0.42rem 0 0.72rem;
-  border-color: rgba(255, 255, 255, 0.14);
-  background: rgba(5, 9, 14, 0.86);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+.site-header.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -140%);
 }
 
 .brand-lockup {
@@ -203,10 +201,6 @@ h3 {
   color: var(--ink);
   line-height: 1;
   transition: transform 260ms var(--ease-out), opacity 260ms var(--ease-out);
-}
-
-.site-header.is-compact .brand-wordmark {
-  transform: scale(0.92);
 }
 
 .brand-wordmark__sol {
@@ -239,11 +233,6 @@ h3 {
   border-radius: var(--radius-pill);
   color: var(--muted);
   transition: all 220ms var(--ease-out);
-}
-
-.site-header.is-compact .main-nav a {
-  padding: 0.36rem 0.72rem;
-  font-size: 0.76rem;
 }
 
 .main-nav a:hover {
@@ -547,7 +536,10 @@ h3 {
   overflow: hidden;
   background: #05080d;
   cursor: zoom-in;
+  touch-action: pan-y;
   transform-style: preserve-3d;
+  user-select: none;
+  -webkit-user-drag: none;
   transition: transform 360ms var(--ease-out);
 }
 
@@ -963,12 +955,8 @@ address a:hover {
     width: calc(100% - 1.5rem);
     overflow-x: auto;
   }
-  .site-header.is-compact {
-    width: calc(100% - 1rem);
-    height: 44px;
-  }
   .brand-wordmark {
-    display: none;
+    display: inline-flex;
   }
   .hero,
   .intro,

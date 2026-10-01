@@ -18,7 +18,7 @@
   const lightbox = document.getElementById("lightbox");
 
   const syncHeaderState = () => {
-    siteHeader?.classList.toggle("is-compact", window.scrollY > 80);
+    siteHeader?.classList.toggle("is-hidden", window.scrollY > 80);
   };
 
   syncHeaderState();
@@ -154,6 +154,8 @@
     let autoplayId = null;
     let projectInView = false;
     let stageSwitchTimer = null;
+    let swipeStart = null;
+    let suppressStageClick = false;
 
     const getVisibleItems = () =>
       allItems.filter((item) => !item.hasAttribute("hidden"));
@@ -245,11 +247,60 @@
     });
 
     const openCurrentInLightbox = (e) => {
+      if (suppressStageClick) {
+        e?.preventDefault();
+        suppressStageClick = false;
+        return;
+      }
+
       const visible = getVisibleItems();
       const currentItem = visible[activeIndex];
       const btn = currentItem?.querySelector(".media-button");
       if (btn) openLightboxFromButton(btn, visible);
     };
+
+    viewport.addEventListener("pointerdown", (e) => {
+      if (!e.isPrimary) return;
+      swipeStart = {
+        id: e.pointerId,
+        x: e.clientX,
+        y: e.clientY
+      };
+      try {
+        viewport.setPointerCapture?.(e.pointerId);
+      } catch {
+        /* Some mobile browsers manage pointer capture internally. */
+      }
+    });
+
+    viewport.addEventListener("pointerup", (e) => {
+      if (!swipeStart || swipeStart.id !== e.pointerId) return;
+
+      const dx = e.clientX - swipeStart.x;
+      const dy = e.clientY - swipeStart.y;
+      const absX = Math.abs(dx);
+      const absY = Math.abs(dy);
+      swipeStart = null;
+      try {
+        viewport.releasePointerCapture?.(e.pointerId);
+      } catch {
+        /* Ignore release mismatches after native touch cancellation. */
+      }
+
+      if (absX < 44 || absX < absY * 1.25) return;
+
+      e.preventDefault();
+      suppressStageClick = true;
+      updateStage(dx < 0 ? activeIndex + 1 : activeIndex - 1);
+      restartAutoplay();
+      window.setTimeout(() => {
+        suppressStageClick = false;
+      }, 260);
+    });
+
+    viewport.addEventListener("pointercancel", () => {
+      swipeStart = null;
+    });
 
     viewport.addEventListener("click", openCurrentInLightbox);
     viewport.addEventListener("keydown", (e) => {
