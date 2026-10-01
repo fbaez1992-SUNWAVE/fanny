@@ -757,16 +757,17 @@ h3 {
   color: #05080d;
   font-weight: 700;
   font-size: 0.9rem;
+  opacity: 0;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
-  transform: translate(-50%, -50%);
-  transition: transform 200ms var(--ease-spring);
+  transform: translate(-50%, -50%) scale(0.92);
+  transition:
+    opacity 180ms var(--ease-out),
+    transform 200ms var(--ease-spring);
 }
 
-.compare-frame:hover .compare-rule::after {
-  transform: translate(-50%, -50%) scale(1.15);
-}
-
-.comparison-card.is-auto-playing .compare-rule::after {
+.compare-frame:hover .compare-rule::after,
+.compare-frame:focus-within .compare-rule::after {
+  opacity: 1;
   transform: translate(-50%, -50%) scale(1.08);
 }
 

@@ -382,9 +382,9 @@
     const range = card.querySelector(".compare-range");
     if (!range) return;
 
-    const minSplit = 18;
-    const maxSplit = 82;
-    const duration = 6800;
+    const minSplit = 0;
+    const maxSplit = 100;
+    const duration = 14000;
     let isInView = false;
     let rafId = null;
     let pauseUntil = 0;
@@ -409,7 +409,7 @@
       }
 
       if (!document.hidden && now >= pauseUntil) {
-        const progress = ((now + index * 900) % duration) / duration;
+        const progress = ((now + index * 1300) % duration) / duration;
         const eased = 0.5 - Math.cos(progress * Math.PI * 2) / 2;
         syncSplit(minSplit + (maxSplit - minSplit) * eased);
       }
