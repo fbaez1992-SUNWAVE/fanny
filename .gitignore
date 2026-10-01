@@ -1,0 +1,15 @@
+# Archivos del sistema
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Revisiones visuales regenerables
+portfolio/_qa/
+
+# Cache local
+.pytest_cache/
+.cache/
