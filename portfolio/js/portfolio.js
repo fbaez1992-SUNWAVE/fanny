@@ -1,5 +1,17 @@
 (() => {
   document.documentElement.classList.add("motion-ready");
+  if ("scrollRestoration" in history && !window.location.hash) {
+    history.scrollRestoration = "manual";
+  }
+
+  window.addEventListener(
+    "load",
+    () => {
+      if (!window.location.hash) window.scrollTo(0, 0);
+    },
+    { once: true }
+  );
+
   const canHover = window.matchMedia("(pointer: fine)").matches;
 
   const attachTilt = (element, intensity = 6, scale = 1.01) => {
@@ -90,7 +102,7 @@
     const getVisibleItems = () =>
       allItems.filter((item) => !item.hasAttribute("hidden"));
 
-    const updateStage = (targetIndex) => {
+    const updateStage = (targetIndex, shouldScroll = true) => {
       const visible = getVisibleItems();
       if (!visible.length) return;
 
@@ -118,7 +130,7 @@
       }, 90);
 
       captionEl.textContent = fullCaption;
-      if (!gallery.classList.contains("is-grid-mode")) {
+      if (shouldScroll && !gallery.classList.contains("is-grid-mode")) {
         currentItem.scrollIntoView({
           behavior: "smooth",
           block: "nearest",
@@ -209,7 +221,7 @@
       });
     }
 
-    updateStage(0);
+    updateStage(0, false);
   });
 
   document.querySelectorAll("[data-compare]").forEach((card) => {
