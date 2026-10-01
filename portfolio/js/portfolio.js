@@ -13,6 +13,16 @@
   );
 
   const canHover = window.matchMedia("(pointer: fine)").matches;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const siteHeader = document.querySelector(".site-header");
+  const lightbox = document.getElementById("lightbox");
+
+  const syncHeaderState = () => {
+    siteHeader?.classList.toggle("is-compact", window.scrollY > 80);
+  };
+
+  syncHeaderState();
+  window.addEventListener("scroll", syncHeaderState, { passive: true });
 
   const attachTilt = (element, intensity = 6, scale = 1.01) => {
     if (!element || !canHover) return;
@@ -59,7 +69,8 @@
     const viewToggle = document.createElement("button");
     viewToggle.type = "button";
     viewToggle.className = "view-toggle-btn";
-    viewToggle.textContent = "Ver mosaico";
+    viewToggle.setAttribute("aria-label", "Ver mosaico");
+    viewToggle.innerHTML = '<span class="view-toggle-icon" aria-hidden="true"></span>';
     toolbar.appendChild(viewToggle);
 
     const firstStageImg = allItems[0].querySelector("img");
@@ -73,16 +84,6 @@
       <div class="stage-viewport" role="button" tabindex="0" aria-label="Ampliar imagen activa">
         <img class="stage-backdrop" src="${firstStageSrc}" alt="" aria-hidden="true">
         <img class="stage-main-img" src="${firstStageSrc}" alt="${firstStageAlt}" decoding="async">
-        <div class="stage-bar">
-          <div class="stage-meta">
-            <span class="stage-meta__caption"></span>
-          </div>
-          <div class="stage-controls">
-            <button type="button" class="stage-btn" data-stage-prev aria-label="Vista anterior">Anterior</button>
-            <button type="button" class="stage-btn" data-stage-next aria-label="Siguiente vista">Siguiente</button>
-            <button type="button" class="stage-btn" data-stage-zoom>Ampliar</button>
-          </div>
-        </div>
       </div>
     `;
 
@@ -92,15 +93,27 @@
     const ambientGlow = stage.querySelector(".stage-ambient-glow");
     const backdropImg = stage.querySelector(".stage-backdrop");
     const mainImg = stage.querySelector(".stage-main-img");
-    const captionEl = stage.querySelector(".stage-meta__caption");
-    const prevBtn = stage.querySelector("[data-stage-prev]");
-    const nextBtn = stage.querySelector("[data-stage-next]");
-    const zoomBtn = stage.querySelector("[data-stage-zoom]");
 
     let activeIndex = 0;
+    let autoplayId = null;
+    let projectInView = false;
+    let stageSwitchTimer = null;
 
     const getVisibleItems = () =>
       allItems.filter((item) => !item.hasAttribute("hidden"));
+
+    const syncActiveThumb = (currentItem) => {
+      if (gallery.classList.contains("is-grid-mode")) return;
+      const targetLeft =
+        currentItem.offsetLeft -
+        gallery.clientWidth / 2 +
+        currentItem.clientWidth / 2;
+
+      gallery.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: reduceMotion ? "auto" : "smooth"
+      });
+    };
 
     const updateStage = (targetIndex, shouldScroll = true) => {
       const visible = getVisibleItems();
@@ -109,9 +122,6 @@
       activeIndex = (targetIndex + visible.length) % visible.length;
       const currentItem = visible[activeIndex];
       const img = currentItem.querySelector("img");
-      const btn = currentItem.querySelector(".media-button");
-      const fullCaption =
-        btn?.getAttribute("data-caption") || img?.alt || "";
 
       allItems.forEach((it) => it.classList.remove("is-selected"));
       currentItem.classList.add("is-selected");
@@ -120,23 +130,47 @@
       const h = Number(img.getAttribute("height")) || 9;
       viewport.classList.toggle("is-VERTICAL", h > w);
 
-      mainImg.style.opacity = "0.25";
-      setTimeout(() => {
+      window.clearTimeout(stageSwitchTimer);
+      mainImg.style.opacity = "0";
+
+      stageSwitchTimer = window.setTimeout(() => {
         mainImg.src = img.src;
         mainImg.alt = img.alt;
         backdropImg.src = img.src;
         ambientGlow.src = img.src;
-        mainImg.style.opacity = "1";
-      }, 90);
-
-      captionEl.textContent = fullCaption;
-      if (shouldScroll && !gallery.classList.contains("is-grid-mode")) {
-        currentItem.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center"
+        window.requestAnimationFrame(() => {
+          mainImg.style.opacity = "1";
         });
+      }, 220);
+
+      if (shouldScroll && !gallery.classList.contains("is-grid-mode")) {
+        syncActiveThumb(currentItem);
       }
+    };
+
+    const startAutoplay = () => {
+      if (reduceMotion || autoplayId || gallery.classList.contains("is-grid-mode")) return;
+
+      autoplayId = window.setInterval(() => {
+        const visible = getVisibleItems();
+        const lightboxOpen = lightbox?.classList.contains("is-open");
+        if (!projectInView || document.hidden || lightboxOpen || visible.length < 2) return;
+        updateStage(activeIndex + 1, false);
+      }, 4200);
+    };
+
+    const stopAutoplay = () => {
+      if (!autoplayId) return;
+      window.clearInterval(autoplayId);
+      autoplayId = null;
+    };
+
+    const restartAutoplay = (delay = 6500) => {
+      stopAutoplay();
+      if (!projectInView || reduceMotion) return;
+      window.setTimeout(() => {
+        if (projectInView) startAutoplay();
+      }, delay);
     };
 
     allItems.forEach((item) => {
@@ -146,42 +180,33 @@
           e.stopImmediatePropagation();
           const visible = getVisibleItems();
           const idx = visible.indexOf(item);
-          if (idx !== -1) updateStage(idx);
+          if (idx !== -1) {
+            updateStage(idx);
+            restartAutoplay();
+          }
         }
       });
     });
 
-    prevBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      updateStage(activeIndex - 1);
-    });
-    nextBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      updateStage(activeIndex + 1);
-    });
-
     const openCurrentInLightbox = (e) => {
-      if (e?.target.closest("[data-stage-prev], [data-stage-next]")) return;
       const visible = getVisibleItems();
       const currentItem = visible[activeIndex];
       const btn = currentItem?.querySelector(".media-button");
       if (btn) openLightboxFromButton(btn, visible);
     };
 
-    zoomBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      openCurrentInLightbox();
-    });
     viewport.addEventListener("click", openCurrentInLightbox);
     viewport.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft") {
         e.preventDefault();
         updateStage(activeIndex - 1);
+        restartAutoplay();
       }
 
       if (e.key === "ArrowRight") {
         e.preventDefault();
         updateStage(activeIndex + 1);
+        restartAutoplay();
       }
 
       if (e.key === "Enter" || e.key === " ") {
@@ -194,9 +219,15 @@
     viewToggle.addEventListener("click", () => {
       const isGrid = gallery.classList.toggle("is-grid-mode");
       viewToggle.classList.toggle("is-active", isGrid);
-      viewToggle.textContent = isGrid
-        ? "Volver al visor"
-        : "Ver mosaico";
+      viewToggle.setAttribute(
+        "aria-label",
+        isGrid ? "Volver al visor" : "Ver mosaico"
+      );
+      if (isGrid) {
+        stopAutoplay();
+      } else if (projectInView) {
+        startAutoplay();
+      }
     });
 
     if (tabsContainer) {
@@ -217,11 +248,27 @@
           });
 
           updateStage(0);
+          restartAutoplay();
         });
       });
     }
 
     updateStage(0, false);
+
+    if (!reduceMotion) {
+      const projectAutoplayObserver = new IntersectionObserver(
+        ([entry]) => {
+          projectInView = entry.isIntersecting;
+          if (projectInView) {
+            startAutoplay();
+          } else {
+            stopAutoplay();
+          }
+        },
+        { rootMargin: "-18% 0px -18% 0px", threshold: 0.18 }
+      );
+      projectAutoplayObserver.observe(project);
+    }
   });
 
   document.querySelectorAll("[data-compare]").forEach((card) => {
@@ -234,7 +281,6 @@
     syncSplit();
   });
 
-  const lightbox = document.getElementById("lightbox");
   const lbImg = lightbox?.querySelector(".lightbox__image");
   const lbCaption = lightbox?.querySelector(".lightbox__caption");
   const lbClose = lightbox?.querySelector(".lightbox__close");
