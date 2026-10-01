@@ -8,7 +8,18 @@ __pycache__/
 *.pyc
 
 # Revisiones visuales regenerables
+_analysis/
 portfolio/_qa/
+
+# Entregables y archivos de trabajo, no necesarios para la web publicada
+*.pdf
+Portafolio-Estefania-Farias-Standalone.html
+portfolio/assets/pdf-original/
+portfolio/tools/
+portfolio/assets/projects/lil-silly-co/
+portfolio/assets/projects/render-obra-ejecutada/
+portfolio/assets/projects/restaurante-arrogante/
+Trabajos reales/madam zhou/*.mp4
 
 # Cache local
 .pytest_cache/
