@@ -58,29 +58,9 @@ body {
   overscroll-behavior-x: none;
 }
 
-main {
-  position: relative;
-  z-index: 1;
-}
-
 ::selection {
   background: var(--accent);
   color: var(--bg);
-}
-
-.logo-scroll-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.chroma-filter-defs {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
 }
 
 img {
@@ -312,56 +292,6 @@ h3 {
   font-family: var(--font-brand);
   font-weight: 800;
   line-height: 0.95;
-}
-
-.hero__logo-slot {
-  position: relative;
-  width: min(132%, clamp(22rem, 46vw, 48rem));
-  aspect-ratio: 16 / 9;
-}
-
-.hero__logo-stage {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  transform-origin: center center;
-  will-change: transform, opacity;
-}
-
-.hero__logo-stage.is-scroll-ghost {
-  position: fixed;
-  inset: auto;
-  top: var(--logo-top, 0px);
-  left: var(--logo-left, 0px);
-  width: var(--logo-width, 40rem);
-  height: var(--logo-height, auto);
-  z-index: 0;
-}
-
-.hero__logo-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.hero__logo-stage.is-video-fallback .hero__logo-video {
-  filter: url("#hero-green-screen");
-  opacity: 1;
-}
-
-.hero__logo-stage.is-video-fallback .hero__logo-canvas {
-  opacity: 0;
-}
-
-.hero__logo-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 .hero__role {
@@ -1066,9 +996,6 @@ address a:hover {
   .hero h1 {
     max-width: 8.8ch;
     font-size: clamp(3.45rem, 13vw, 5.6rem);
-  }
-  .hero__logo-slot {
-    width: min(100%, clamp(18rem, 90vw, 34rem));
   }
   .hero__visual {
     width: 100%;
